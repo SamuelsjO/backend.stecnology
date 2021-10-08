@@ -19,6 +19,9 @@
 
     docker container run --network stec-network --name stecnology-api-container -p 8080:8080 -d stecnology-api
     
+    
+    ***ESTUDANDO MELHORAS PARA DOCKER-COMPOSE
+    
 
 <h1>link for swagger</h1>
 
