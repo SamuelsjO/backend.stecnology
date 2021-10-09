@@ -8,19 +8,11 @@
 
 
     mvn install for generation .jar
-    
-    up docker
-    
     docker network create stec-network
+    docker-compose -d --build
+    
+    
    
-    docker container run --name mysqldb --network stec-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db_stecnology -d -p 3306:3306 mysql:8.0.26
-
-    docker image build -t stecnology-api .
-
-    docker container run --network stec-network --name stecnology-api-container -p 8080:8080 -d stecnology-api
-    
-    
-    ***ESTUDANDO MELHORAS PARA DOCKER-COMPOSE
     
 
 <h1>link for swagger</h1>

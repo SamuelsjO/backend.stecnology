@@ -1,7 +1,11 @@
-FROM openjdk:11
+FROM openjdk:11-jdk
 
-WORKDIR /app
+VOLUME /tpm
 
-COPY target/stecnology-api-0.0.1-SNAPSHOT.jar /app/stecnology-app.jar
+ADD target/stecnology-api-0.0.1-SNAPSHOT.jar app.jar
 
-ENTRYPOINT ["java","-jar","stecnology-app.jar"]
+EXPOSE 8080
+
+RUN bash -c 'touch /app.jar'
+
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar"]
