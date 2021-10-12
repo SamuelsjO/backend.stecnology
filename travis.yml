@@ -12,9 +12,5 @@ deploy:
   script: docker push dockersam123/stecnology-api:latest;
   true: 
     branch: master
-language: bash
 notifications: 
   email: false
-script: 
-  - "docker-compose build"
-services: docker
