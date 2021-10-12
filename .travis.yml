@@ -1,7 +1,7 @@
 language: bash
 services: docker
 before_install:
-  - cd ./devOps/
+  - cd ./stecnology-api/devOps/
   - echo "We ate in the docker folder!"
 script:
   - docker-compose build
