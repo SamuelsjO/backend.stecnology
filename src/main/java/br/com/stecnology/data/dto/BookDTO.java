@@ -17,13 +17,9 @@ public class BookDTO extends ResourceSupport implements Serializable {
 	@Mapping("id")
 	@JsonProperty("id")
     private Long key;
-    
 	private String author;
- 
 	private Date launch_date;
-
 	private Double price;
-
 	private String title;
 	
 	public BookDTO() {

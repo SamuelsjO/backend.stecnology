@@ -81,13 +81,6 @@ public class Person implements Serializable {
 		return Objects.hash(enabled, firstName, gender, id, lastName);
 	}
 
-	
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
-				+ ", enabled=" + enabled + "]";
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

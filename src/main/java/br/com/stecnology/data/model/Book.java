@@ -98,7 +98,6 @@ public class Book implements Serializable{
 				&& Objects.equals(launch_date, other.launch_date) && Objects.equals(price, other.price)
 				&& Objects.equals(title, other.title);
 	}
-	
-	
+
 
 }

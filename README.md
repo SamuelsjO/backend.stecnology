@@ -9,6 +9,7 @@
 
     mvn install for generation .jar
     docker network create stec-network
+    docker push dockersam123/stecnology-api:latest
     docker-compose -d --build
     
     
