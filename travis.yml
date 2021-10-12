@@ -7,11 +7,14 @@ script:
   - docker-compose build
 before_deploy:
   - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
-deploy:
+deploy: 
   provider: script
-  script: 
-    docker push dockersam123/stecnology-api:latest;
-  on: 
+  script: docker push dockersam123/stecnology-api:latest;
+  true: 
     branch: master
+language: bash
 notifications: 
-    email: false
+  email: false
+script: 
+  - "docker-compose build"
+services: docker
