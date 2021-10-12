@@ -1,17 +1,16 @@
-language: bash
-services: docker
-before_install:
-  - cd stecnology-api
-  - echo "We ate in the docker folder!"
-script:
-  - docker-compose build
-before_deploy:
-  - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
-deploy:
+before_deploy: 
+  - "echo \"${DOCKER_PASSWORD}\" | docker login --username \"${DOCKER_USERNAME}\" --password-stdin"
+before_install: 
+  - "cd stecnology-api"
+  - "echo \"We ate in the docker folder!\""
+deploy: 
   provider: script
-  script: 
-    docker push dockersam123/stecnology-api:latest;
-  on: 
+  script: "docker push dockersam123/stecnology-api:latest;"
+  true: 
     branch: master
+language: bash
 notifications: 
-    email: false
+  email: false
+script: 
+  - "docker-compose build"
+services: docker
