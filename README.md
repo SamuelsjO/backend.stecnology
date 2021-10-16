@@ -14,6 +14,47 @@
     
     
    
+<b>AWS - Amazon web service - create image in repository aws</b> 
+   
+    1°- Create database aws -> create database RDS mysql, get value in endpoint the database in local
+       - Name databse -> awsdbstecnology
+
+    2°- Create user IAM -> Create user -> Access Key: programatic key -> Attach existing directly
+       - AmazonEC2ContainerRegistryPowerUser
+    3°- Create Cluster ECS, Elastic Container Service -> Cluster -> create Cluster
+      - EC2 Linux + Networking
+      - name: AWSstecnologyCluster
+      - Create Key_pair in EC2Console
+    4°- Create repository ECR, Elastic Container Registry
+       - Get Start -> name repository will be the name of the image docker -> dockersam123/stecnology-api
+       - image -> 039282644276.dkr.ecr.us-east-2.amazonaws.com/dockersam123/stecnology-api
+       - Using CLI steps to upload the image to the repository AWS instal AWS CLI
+       - in terminal use aws configure
+       - Use token the crendial aws create in process
+       - Default region name [us-east-2]: us-east-2 and default json
+       - docker-compose up -b --build
+     
+      1° - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 039282644276.dkr.ecr.us-east-2.amazonaws.com
+      2° - docker build -t dockersam123/stecnology-api ., do not necessary
+      3° - docker tag dockersam123/stecnology-api:latest 039282644276.dkr.ecr.us-east-2.amazonaws.com/dockersam123/stecnology-api:latest
+      4° - docker push 039282644276.dkr.ecr.us-east-2.amazonaws.com/dockersam123/stecnology-api:latest
+
+    5°- Create a Task definitions -> Create a new task definition
+       1° - Options EC2
+       2° - name: AWSstecnologyTask
+       3° - add container
+         1° - name container: AWSstecnologyTask
+         2° - paste image repository image in box image:latest
+         3° - port mapping 8080
+
+    6°- Create Service -> in task definitions -> actions -> create Service
+      1°- Options EC2
+        - ec2-3-129-88-120.us-east-2.compute.amazonaws.com -> DNS IPv4 público
+    7°- Acess terminal with key
+      1°- ssh -i "MY_KEY_PAIR.pem" ec2-user@ec2-3-129-88-120.us-east-2.compute.amazonaws.com
+        - Access via ssh terminal in the folder where KEY_PAIR
+    
+    
     
 
 <h1>link for swagger</h1>
